@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useScrollReveal, textRevealStyle, lineRevealStyle, STAGGER } from "./useScrollReveal";
 import { useCountUp } from "./useCountUp";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 
 export default function ContactForm() {
   const { ref, isVisible } = useScrollReveal();
@@ -28,11 +27,12 @@ export default function ContactForm() {
     setLoading(true);
     setError(null);
     try {
-      await base44.integrations.Core.SendEmail({
-        to: "sagy@2fellasmedia.com",
-        subject: `New enquiry from ${form.fullName}${form.companyName ? ` — ${form.companyName}` : ""}`,
-        body: `Name: ${form.fullName}\nCompany: ${form.companyName}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`,
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
+      if (!res.ok) throw new Error("Failed to send");
       setSubmitted(true);
     } catch (err) {
       console.error("Failed to send email:", err);

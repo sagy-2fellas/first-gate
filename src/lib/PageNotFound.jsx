@@ -1,24 +1,10 @@
 import { useLocation } from 'react-router-dom';
-import { base44 } from '@/api/base44Client';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 
 export default function PageNotFound() {
     const location = useLocation();
     const pageName = location.pathname.substring(1);
     const canvasRef = useRef(null);
-
-    const { data: authData, isFetched } = useQuery({
-        queryKey: ['user'],
-        queryFn: async () => {
-            try {
-                const user = await base44.auth.me();
-                return { user, isAuthenticated: true };
-            } catch {
-                return { user: null, isAuthenticated: false };
-            }
-        }
-    });
 
     // Subtle animated grid / particles on canvas
     useEffect(() => {
@@ -111,19 +97,9 @@ export default function PageNotFound() {
                     Page Not Found
                 </p>
                 <p className="text-[#F5F3EF]/40 text-base font-light leading-relaxed mb-12">
-                    The page{pageName ? <> "<span className="text-[#F5F3EF]/70">{pageName}</span>"</> : ''} could not be located.<br />
+                    The page{pageName ? <>" "<span className="text-[#F5F3EF]/70">{pageName}</span>"</> : ''} could not be located.<br />
                     It may have been moved or no longer exists.
                 </p>
-
-                {/* Admin note */}
-                {isFetched && authData?.isAuthenticated && authData?.user?.role === 'admin' && (
-                    <div className="mb-10 inline-block border border-[#38383A]/60 px-5 py-3 text-left">
-                        <p className="text-[#BEAA6D]/70 text-xs tracking-[0.25em] uppercase mb-1">Admin Note</p>
-                        <p className="text-[#F5F3EF]/40 text-xs leading-relaxed">
-                            This page may not have been implemented yet. Ask the AI to build it.
-                        </p>
-                    </div>
-                )}
 
                 {/* CTA */}
                 <div>
