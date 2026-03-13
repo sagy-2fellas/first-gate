@@ -127,8 +127,8 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "First Gate Website <onboarding@resend.dev>",
-        to: "sagy@2fellasmedia.com", // Must use this until domain is verified
+        from: "First Gate Website <sales@firstgate.co.za>",
+        to: "sales@firstgate.co.za",
         subject: `New enquiry from ${fullName}${companyName ? ` — ${companyName}` : ""}`,
         html: htmlContent,
       }),
