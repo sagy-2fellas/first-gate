@@ -8,6 +8,8 @@ export default function ContactForm() {
   const { ref, isVisible } = useScrollReveal();
   const sectionNum = useCountUp(7, isVisible);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [form, setForm] = useState({
     fullName: "",
     companyName: "",
@@ -18,16 +20,26 @@ export default function ContactForm() {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (error) setError(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await base44.integrations.Core.SendEmail({
-      to: "sagy@2fellasmedia.com",
-      subject: `New enquiry from ${form.fullName}${form.companyName ? ` — ${form.companyName}` : ""}`,
-      body: `Name: ${form.fullName}\nCompany: ${form.companyName}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`,
-    });
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    try {
+      await base44.integrations.Core.SendEmail({
+        to: "sagy@2fellasmedia.com",
+        subject: `New enquiry from ${form.fullName}${form.companyName ? ` — ${form.companyName}` : ""}`,
+        body: `Name: ${form.fullName}\nCompany: ${form.companyName}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -162,10 +174,14 @@ export default function ContactForm() {
               <div className="pt-6">
                 <button
                   type="submit"
-                  className="bg-[#BEAA6D] text-[#0D0D0D] px-10 py-4 text-sm tracking-[0.2em] uppercase rounded-full hover:bg-[#d4c17f] transition-all duration-500 min-h-[48px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BEAA6D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
+                  disabled={loading}
+                  className={`bg-[#BEAA6D] text-[#0D0D0D] px-10 py-4 text-sm tracking-[0.2em] uppercase rounded-full hover:bg-[#d4c17f] transition-all duration-500 min-h-[48px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BEAA6D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
                 >
-                  Request a Consultation
+                  {loading ? "Sending..." : "Request a Consultation"}
                 </button>
+                {error && (
+                  <p className="text-red-400 text-sm mt-4">{error}</p>
+                )}
               </div>
             </form>
           )}
