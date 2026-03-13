@@ -42,8 +42,8 @@ export default function Footer() {
           },
           {
             label: "Email",
-            value: "info@firstgate.co.za",
-            href: "mailto:info@firstgate.co.za",
+            value: "sales@firstgate.co.za",
+            href: "mailto:sales@firstgate.co.za",
           },
           {
             label: "Web",

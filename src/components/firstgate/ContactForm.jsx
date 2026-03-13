@@ -211,10 +211,10 @@ export default function ContactForm() {
               <div>
                 <p className="text-[#F5F3EF]/40 text-xs tracking-[0.2em] uppercase mb-2">Email</p>
                 <a
-                  href="mailto:info@firstgate.co.za"
+                  href="mailto:sales@firstgate.co.za"
                   className="text-[#F5F3EF]/70 text-base hover:text-[#BEAA6D] transition-colors duration-300"
                 >
-                  info@firstgate.co.za
+                  sales@firstgate.co.za
                 </a>
               </div>
             </div>

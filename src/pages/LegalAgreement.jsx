@@ -91,8 +91,8 @@ export default function LegalAgreement() {
             <h2 className="text-xl md:text-2xl font-light text-gray-900 tracking-tight">Contact Us</h2>
           </div>
           <p className="text-gray-600 leading-[1.8] mb-3">If you have any questions about these Terms, please contact us at:</p>
-          <a href="mailto:info@firstgate.co.za" className="text-gray-900 hover:underline tracking-wide">
-            info@firstgate.co.za
+          <a href="mailto:sales@firstgate.co.za" className="text-gray-900 hover:underline tracking-wide">
+            sales@firstgate.co.za
           </a>
         </section>
       </div>

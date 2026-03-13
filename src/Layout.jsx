@@ -19,7 +19,7 @@ const defaultSEO = {
     "image": "https://firstgate.co.za/og-image.jpg",
     "description": "Integrated design, build and fit-out company delivering turnkey commercial and residential construction across Cape Town and South Africa.",
     "telephone": "+27214931791",
-    "email": "info@firstgate.co.za",
+  "email": "sales@firstgate.co.za",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "15th Floor, The Towers, 2 Hertzog Boulevard",

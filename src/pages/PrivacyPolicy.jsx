@@ -169,8 +169,8 @@ const SECTIONS = [
         ))}
         <div className="sm:col-span-2 text-[#0D0D0D]/50 text-sm pt-2">
           To exercise any of these rights, please contact us at{" "}
-          <a href="mailto:info@firstgate.co.za" className="text-[#BEAA6D]/70 hover:text-[#BEAA6D] transition-colors duration-300">
-            info@firstgate.co.za
+          <a href="mailto:sales@firstgate.co.za" className="text-[#BEAA6D]/70 hover:text-[#BEAA6D] transition-colors duration-300">
+            sales@firstgate.co.za
           </a>
         </div>
       </div>
@@ -213,8 +213,8 @@ const SECTIONS = [
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="border border-[#0D0D0D]/10 p-5">
             <p className="text-[#BEAA6D]/70 text-xs tracking-[0.25em] uppercase mb-2">General Inquiries</p>
-            <a href="mailto:info@firstgate.co.za" className="text-[#0D0D0D]/60 hover:text-[#BEAA6D] transition-colors duration-300 text-sm">
-              info@firstgate.co.za
+            <a href="mailto:sales@firstgate.co.za" className="text-[#0D0D0D]/60 hover:text-[#BEAA6D] transition-colors duration-300 text-sm">
+              sales@firstgate.co.za
             </a>
           </div>
           <div className="border border-[#0D0D0D]/10 p-5">
