@@ -23,7 +23,7 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await base44.integrations.Core.SendEmail({
-      to: "sales@firstgate.co.za",
+      to: "sagy@2fellasmedia.com",
       subject: `New enquiry from ${form.fullName}${form.companyName ? ` — ${form.companyName}` : ""}`,
       body: `Name: ${form.fullName}\nCompany: ${form.companyName}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`,
     });
