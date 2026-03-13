@@ -128,7 +128,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "First Gate Website <onboarding@resend.dev>",
-        to: "sagy@2fellasmedia.com",
+        to: "sales@firstgate.co.za",
         subject: `New enquiry from ${fullName}${companyName ? ` — ${companyName}` : ""}`,
         html: htmlContent, // Sending the HTML instead of plain text
       }),
