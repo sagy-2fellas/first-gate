@@ -9,7 +9,7 @@ export default function About() {
   const sectionNum = useCountUp(1, isVisible);
 
   return (
-    <section id="about" ref={ref} className="relative bg-[#0D0D0D] py-[15vh] px-6 md:px-[10vw]">
+    <section id="about" ref={ref} className="relative bg-[#0D0D0D] py-16 md:py-[12vh] px-6 md:px-[10vw]">
       {/* Section divider */}
       <div className="w-full h-[1px] bg-[#BEAA6D]/30 mb-16 md:mb-24" style={lineRevealStyle(isVisible)} />
 

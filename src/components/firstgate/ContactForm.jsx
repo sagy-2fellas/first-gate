@@ -46,7 +46,7 @@ export default function ContactForm() {
     "w-full bg-transparent border-b border-[#38383A] py-4 text-[#F5F3EF] placeholder-[#F5F3EF]/25 focus:border-[#BEAA6D] focus:outline-none transition-colors duration-500 text-base";
 
   return (
-    <section id="contact" ref={ref} className="bg-[#0D0D0D] py-[15vh] px-6 md:px-[10vw]">
+    <section id="contact" ref={ref} className="bg-[#0D0D0D] py-16 md:py-[12vh] px-6 md:px-[10vw]">
       {/* Divider */}
       <div className="w-full h-[1px] bg-[#BEAA6D]/30 mb-16 md:mb-24" style={lineRevealStyle(isVisible)} />
 

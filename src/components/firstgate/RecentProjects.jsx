@@ -194,7 +194,7 @@ export default function RecentProjects() {
   const [openProject, setOpenProject] = useState(null);
 
   return (
-    <section ref={ref} className="bg-[#0D0D0D] py-[15vh] px-6 md:px-[10vw]">
+    <section ref={ref} className="bg-[#0D0D0D] py-16 md:py-[12vh] px-6 md:px-[10vw]">
       {/* Divider */}
       <div className="w-full h-[1px] bg-[#BEAA6D]/30 mb-16 md:mb-24" style={lineRevealStyle(isVisible)} />
 
