@@ -14,7 +14,7 @@ export default function Footer() {
 
       {/* Logo + BEE Stamp */}
       <div
-        className="mb-16 md:mb-24 flex items-center gap-8"
+        className="mb-16 md:mb-24 flex flex-wrap items-center gap-6 w-full"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -24,12 +24,12 @@ export default function Footer() {
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b0299c443f8438ee7f3b53/74f7a3925_one_colour__gold_-removebg-preview.png"
           alt="First Gate"
-          className="h-16 md:h-24 w-auto object-contain"
+          className="h-14 md:h-24 w-auto max-w-[45%] object-contain"
         />
         <img
           src="https://media.base44.com/images/public/69b0299c443f8438ee7f3b53/d414f3b5c_BEE-Level1-removebg-preview.png"
           alt="Level 1 BEE Contributor"
-          className="h-28 md:h-40 w-auto object-contain"
+          className="h-24 md:h-40 w-auto max-w-[45%] object-contain"
         />
       </div>
 
