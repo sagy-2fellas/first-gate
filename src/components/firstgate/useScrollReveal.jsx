@@ -15,6 +15,15 @@ export function useScrollReveal(threshold = 0.2) {
       return;
     }
 
+    // If the element is taller than the viewport, a threshold > 0 will never fire.
+    // In that case, lower it to 0 so it triggers as soon as any pixel is visible.
+    const el = ref.current;
+    if (!el) return;
+    const effectiveThreshold =
+      el.getBoundingClientRect().height > window.innerHeight * 0.8
+        ? 0
+        : threshold;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,10 +31,10 @@ export function useScrollReveal(threshold = 0.2) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold }
+      { threshold: effectiveThreshold, rootMargin: "0px 0px -40px 0px" }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, [threshold]);
 
